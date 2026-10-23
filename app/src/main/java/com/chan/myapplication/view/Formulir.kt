@@ -35,7 +35,7 @@ fun FormIsian(
                 title = { Text(stringResource(id=R.string.home), color = Color.White)},
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     colorResource(id = R.color.teal_700)
-                ) }
+                ))}
     ){ isiRuang ->
         Column(modifier = Modifier.padding(isiRuang),
             verticalArrangement = Arrangement.Top,
@@ -49,11 +49,22 @@ fun FormIsian(
                 label = {Text(text = "Nama Lengkap")},
                 onValueChange = {},
             )
-
-
+            HorizontalDivider(modifier = Modifier
+                .padding(20.dp)
+                .width(250.dp), thickness = Thickness,color = Color.Red)
+            Row{
+                jenisK.forEach {
+                        item->
+                    Row(verticalAlignment = Alignment.CenterVertically){
+                        RadioButton(
+                            selected = false,
+                            onClick = {item}
+                        )
+                        Text(text = item)
+                    }
                 }
             }
+
         }
     }
-    )
 }
